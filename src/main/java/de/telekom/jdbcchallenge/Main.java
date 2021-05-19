@@ -20,6 +20,12 @@ public class Main {
 			Statement statement = connection.createStatement(  );
 			ResultSet resultSet = statement.executeQuery( "select * from personen");
 						
+			
+	
+			
+			
+			
+			
 			while(resultSet.next()) {
 			//	System.out.println("Anzahl Personen: " + select * from personen);
 				System.out.print("ID " +resultSet.getInt(1) +", ");
@@ -28,19 +34,24 @@ public class Main {
 			    System.out.print("Nachname " +resultSet.getString(4)); 
 			    System.out.println();
 			}
+		
 			
-			String sql = ;
+			String sql = "INSERT INTO personen (ID, ANREDE, VORNAME, NACHNAME) VALUES (?, ?,?, ?)";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql );  //siehe Frederick 16:00
 			//preparedStatement.executeSQL( "INSERT INTO personen( ?, ?, ? ");
 			
-			preparedStatement.setInt(1, 4);
-			preparedStatement.setInt(2, 1);
-			preparedStatement.setString(3, "Paul");
-			preparedStatement.setString(4, "Paulsen");
+			preparedStatement.setInt(1, 6);
+			preparedStatement.setInt(2, 2);
+			preparedStatement.setString(3, "Palle");
+			preparedStatement.setString(4, "Haus");
+			
+			preparedStatement.setInt(1, 7);
+			preparedStatement.setInt(2, 0);
+			preparedStatement.setString(3, "Anke");
+			preparedStatement.setString(4, "Doller");
 
 			preparedStatement.execute();
-			
-			
+		
 			resultSet.close();
 			statement.close();
 			connection.close();
